@@ -2,6 +2,7 @@ package com.example.avar2ftw
 
 import android.graphics.Typeface
 import android.os.Bundle
+import android.util.TypedValue
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
@@ -26,15 +27,16 @@ class MainActivity : AppCompatActivity() {
 
     var layout = findViewById<LinearLayout>(R.id.linear);
 
-    createWeightRamp(layout, "roboto_avar1.ttf");
-    createWeightRamp(layout, "roboto_avar2.ttf");
+    createWeightRamp(layout, "roboto_avar1.ttf", 1);
+    createWeightRamp(layout, "roboto_avar2.ttf", 2);
   }
 
-  fun createWeightRamp(parent: ViewGroup, font_path: String) {
+  fun createWeightRamp(parent: ViewGroup, font_path: String, avar_version: Int) {
     for (i in 1..9) {
       val wght = i * 100;
       val tv = TextView(applicationContext);
-      tv.text = "Hamburgevons ($wght, $font_path)";
+      tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 28.0f);
+      tv.text = "Hamburgevons ($wght, avar$avar_version)";
       var type = Typeface.Builder(assets, font_path)
         .setFontVariationSettings("'wght' ${wght}")
         .build();
