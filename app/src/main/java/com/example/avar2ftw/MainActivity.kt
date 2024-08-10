@@ -37,10 +37,9 @@ class MainActivity : AppCompatActivity() {
       val tv = TextView(applicationContext);
       tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 28.0f);
       tv.text = "Hamburgevons ($wght, avar$avar_version)";
-      var type = Typeface.Builder(assets, font_path)
+      tv.typeface = Typeface.Builder(assets, font_path)
         .setFontVariationSettings("'wght' ${wght}")
         .build();
-      tv.typeface = type;
       parent.addView(tv);
     }
   }
